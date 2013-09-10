@@ -45,7 +45,6 @@ public:
     void reverse();
     bool find(T &d);
     bool &find_reverse(T &d);
-    void index(string file);
 };
 
 template<typename T>
@@ -187,11 +186,6 @@ bool &DList<T>::find_reverse(T &d) {
         tmp = tmp->m_pAnt;
     }
     return false;
-}
-
-template<typename T>
-void DList<T>::index(string file) {
-
 }
 
 #endif // DLIST_H
