@@ -8,8 +8,8 @@ class DList
 {
     typedef DNodo<T> Nodo_T;
 private:
-    Nodo_T *m_pHead;
-    Nodo_T *m_pLast;
+    Nodo_T *m_pHead,
+           *m_pLast;
     int tam;
 
 public:
@@ -18,6 +18,15 @@ public:
         m_pLast(NULL),
         tam(0)
     {}
+
+    ~DList() {
+        if(m_pHead) {
+            m_pHead->kill_me();
+            m_pHead = m_pLast = NULL;
+            tam = 0;
+        }
+    }
+
     DList operator+(DList &B);
     DList operator-(DList &B);
     friend ostream &operator<<(ostream &os, DList<T> &List) {

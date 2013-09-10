@@ -5,8 +5,9 @@ Word::Word() :
     end(0)
 {}
 
-Word::Word(string &w, p_seek _beg, p_seek _end) :
+Word::Word(string &w, string &f, p_seek _beg, p_seek _end) :
     word(w),
+    file(f),
     begin(_beg),
     end(_end)
 {}
