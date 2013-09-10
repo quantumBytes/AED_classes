@@ -31,7 +31,6 @@ public:
     DList operator-(DList &B);
     friend ostream &operator<<(ostream &os, DList<T> &List) {
         Nodo_T *tmp = List.m_pHead;
-
         while(tmp) {
             os << tmp->m_dato << "\t";
             tmp = tmp->m_pSig;
@@ -48,6 +47,8 @@ public:
 
     void push_front(T &d);
     void push_back(T &d);
+    T &front();
+    T &last();
     void sort();
     int size();
     T &operator[](int p);
@@ -80,6 +81,16 @@ DList<T> DList<T>::operator+(DList &B) {
             ret.push_back(tmp->m_dato);
 
     return ret;
+}
+
+template <typename T>
+T &DList<T>::front() {
+    return m_pHead->m_dato;
+}
+
+template <typename T>
+T &DList<T>::last() {
+    return m_pLast->m_dato;
 }
 
 template<typename T>

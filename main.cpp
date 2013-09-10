@@ -9,7 +9,7 @@ int main()
 {
     Dictionary<DList> myDict;
     myDict.index("dictionary.txt");
-//    cout << myDict;
+    cout << myDict;
     return 0;
 }
 

@@ -33,10 +33,12 @@ public:
 
 public:
     DNodo(T &d) :
-        m_dato(d),
+//        m_dato(d),
         m_pSig(NULL),
         m_pAnt(NULL)
-    {}
+    {
+        m_dato = d;
+    }
     friend ostream& operator<<(ostream &os, DNodo &node) {
         os << node.m_dato;
         return os;

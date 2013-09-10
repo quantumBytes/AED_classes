@@ -10,15 +10,15 @@ class Word {
     typedef size_t p_seek;
 
 private:
-    string word,
-           file;
+    string word;
+    ifstream *file;
     p_seek begin,
            end;
 
 public:
     Word();
 
-    Word(string &w, string &f, p_seek _beg = 0, p_seek _end = 0);
+    Word(string &w, ifstream *f, p_seek _beg = 0, p_seek _end = 0);
 
     ~Word() {}
 
@@ -34,9 +34,18 @@ public:
 
     string& getDefinition();
 
+    Word &operator =(Word _word)
+    {
+        word = _word.word;
+        file = _word.file;
+        begin = _word.begin;
+        end = _word.end;
+        return *this;
+    }
+
     friend ostream &operator<<(ostream &os, Word &_word) {
-        os << _word.getWord() << ": ";
-        os << _word.getDefinition() << endl;
+        os << _word.getWord() << ": "
+        << _word.getDefinition() << endl;
         return os;
     }
 };
@@ -63,7 +72,9 @@ public:
     inline size_t size() {  return words->size();    }
 
     friend ostream &operator<<(ostream &os, Dictionary<Container> &Dict) {
-        os << Dict.words;
+        Dict.words->reverse();
+        os << Dict.words->front() << Dict.words->last();
+//        os << (Dict.words);
         return os;
     }
 };
@@ -79,12 +90,21 @@ void Dictionary<Container>::index(string _file) {
 
     file = new ifstream(_file.c_str());
     char buffer[256];
+    int ini,
+        end;
 
     while(!file->eof()) {
         file->getline(buffer, 256, ':');
-        cout << buffer << endl;
-        file->getline(buffer, 256, '|');
-        cout << buffer << endl;
+        if(buffer[0]) {
+            string word(buffer);
+            ini = file->tellg();
+            file->ignore(256, '|');     //        file->getline(buffer, 256, '|');
+            end = file->tellg();        //        cout << buffer << endl;
+            Word tmp(word, file, ini, end);
+            words->push_back(tmp);
+
+        }
+        file->getline(buffer, 256);
     }
 
 //    words.push_back(z);
