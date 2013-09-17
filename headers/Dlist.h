@@ -23,7 +23,7 @@ public:
         if(m_pHead) {
             m_pHead->kill_me();
             m_pHead = m_pLast = NULL;
-            tam = 0;
+//            tam = 0;
         }
     }
 

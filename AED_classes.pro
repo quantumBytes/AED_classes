@@ -16,4 +16,5 @@ HEADERS += \
     headers/Stack.h \
     headers/Queue.h \
     file_mng/file_managing.h \
-    headers/container.h
+    headers/container.h \
+    headers/BinTree.h

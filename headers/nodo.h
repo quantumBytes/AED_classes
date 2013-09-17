@@ -47,6 +47,28 @@ public:
     void kill_me();
 };
 
+template<class T>
+class BinTreeNode {
+public:
+    T m_dato;
+    BinTreeNode<T> *m_pChildren[2];
+
+public:
+    BinTreeNode(T &d) :
+        m_dato(d)
+    {
+//        m_dato = d;
+        m_pChildren[0] = m_pChildren[1] = NULL;
+    }
+
+    friend ostream& operator<<(ostream &os, BinTreeNode &node) {
+        os << node.m_dato;
+        return os;
+    }
+
+    void kill_me();
+};
+
 #include "headers/nodo.cpp"
 
 #endif // NODO_H
