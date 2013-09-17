@@ -33,6 +33,7 @@ string& Word::getWord() {
     return word;
 }
 
-string &Word::getDefinition() { //NECESITA MEJORAR
-    return word;
+string Word::getDefinition() {
+    string a = "Definition";
+    return a;
 }

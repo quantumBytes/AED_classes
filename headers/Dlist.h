@@ -47,6 +47,7 @@ public:
 
     void push_front(T &d);
     void push_back(T &d);
+    T &at(size_t pos);
     T &front();
     T &last();
     void sort();
@@ -195,6 +196,16 @@ void DList<T>::reverse() {
         m_pLast = tmp;
 
     */
+}
+
+template<typename T>
+T &DList<T>::at(size_t pos) {
+    if(pos > tam)
+        throw 0;
+
+    Nodo_T *tmp;
+    for(tmp = m_pHead; pos>0; tmp = tmp->m_pSig, --pos);
+    return tmp->m_dato;
 }
 
 template<typename T>
