@@ -32,7 +32,7 @@ public:
 
     string& getWord();
 
-    string& getDefinition();
+    string getDefinition();
 
     Word &operator =(Word _word)
     {
@@ -72,8 +72,11 @@ public:
     inline size_t size() {  return words->size();    }
 
     friend ostream &operator<<(ostream &os, Dictionary<Container> &Dict) {
-        Dict.words->reverse();
-        os << Dict.words->front() << Dict.words->last();
+        size_t tam = Dict.size();
+        for(register size_t i = 0; i < tam; ++i)
+            os << Dict.words->at(i);
+
+//        os << Dict.words->front() << Dict.words->last();
 //        os << (Dict.words);
         return os;
     }

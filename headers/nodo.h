@@ -47,6 +47,7 @@ public:
     void kill_me();
 };
 
+<<<<<<< HEAD
 template <typename T>
 class BinTreeNode {
 public:
