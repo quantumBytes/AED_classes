@@ -47,6 +47,31 @@ public:
     void kill_me();
 };
 
+template <typename T>
+class BinTreeNode {
+public:
+    T m_dato;
+    BinTreeNode *m_pChildren[2];
+
+public:
+    BinTreeNode(T &d) :
+        m_dato(d)
+    {
+        m_pChildren[0] = m_pChildren[1] = NULL;
+    }
+
+    ~BinTreeNode()
+    {}
+
+    void kill_me() {
+        if(m_pChildren[0])
+            m_pChildren[0]->kill_me();
+        if(m_pChildren[1])
+            m_pChildren[1]->kill_me();
+        delete this;
+    }
+};
+
 #include "headers/nodo.cpp"
 
 #endif // NODO_H
