@@ -47,7 +47,6 @@ public:
     void kill_me();
 };
 
-<<<<<<< HEAD
 template <typename T>
 class BinTreeNode {
 public:
@@ -64,13 +63,28 @@ public:
     ~BinTreeNode()
     {}
 
-    void kill_me() {
-        if(m_pChildren[0])
-            m_pChildren[0]->kill_me();
-        if(m_pChildren[1])
-            m_pChildren[1]->kill_me();
-        delete this;
+    void kill_me();
+};
+
+template <typename T>
+class CounterTreeNode {
+public:
+    T m_dato;
+    CounterTreeNode *m_pChildren[2];
+    size_t count[2];
+
+public:
+    CounterTreeNode(T &_dato) :
+        m_dato(_dato)
+    {
+        m_pChildren[0] = NULL;
+        m_pChildren[1] = NULL;
     }
+
+    ~CounterTreeNode()
+    {}
+
+    void kill_me();
 };
 
 #include "headers/nodo.cpp"
