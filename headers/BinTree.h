@@ -26,6 +26,11 @@ public:
     bool find(T &d, Node_T **&p);
     bool add(T &d);
     bool remove(T &d);
+    bool addRec(T &d, Node_T *&p);
+    bool findRec(T &d, Node_T *p);
+    void printIn(Node_T *p);
+    void printPre(Node_T *p);
+    void printPos(Node_T *p);
     friend ostream &operator<<(ostream &os, BinTree<T> &List) {
 
 
@@ -66,6 +71,37 @@ bool BinTree<T>::remove(T &d) {
     *p = (*p)->m_pChildren[rand() % 2];
     delete tmp;
     return true;
+}
+
+template <typename T>
+bool BinTree<T>::addRec(T &d, Node_T *&p) {
+    if(p)
+        return addRec(d, p->m_pChildren[p->m_dato < d]);
+    Node_T *neo = Node_T(d);
+    p = neo;
+    return true;
+}
+
+template <typename T>
+bool BinTree<T>::findRec(T &d, Node_T *&p) {
+    if(p->m_dato == d)
+        return true;
+    return findRec(d, p->m_pChildren[p->m_dato < d]);
+}
+
+template <typename T>
+void BinTree<T>::printIn(Node_T *p) {
+
+}
+
+template <typename T>
+void BinTree<T>::printPre(Node_T *p) {
+
+}
+
+template <typename T>
+void BinTree<T>::printPos(Node_T *p) {
+
 }
 
 #endif // BINTREE_H
