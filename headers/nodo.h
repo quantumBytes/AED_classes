@@ -47,24 +47,42 @@ public:
     void kill_me();
 };
 
-template<class T>
+template <typename T>
 class BinTreeNode {
 public:
     T m_dato;
-    BinTreeNode<T> *m_pChildren[2];
+    BinTreeNode *m_pChildren[2];
 
 public:
     BinTreeNode(T &d) :
         m_dato(d)
     {
-//        m_dato = d;
         m_pChildren[0] = m_pChildren[1] = NULL;
     }
 
-    friend ostream& operator<<(ostream &os, BinTreeNode &node) {
-        os << node.m_dato;
-        return os;
+    ~BinTreeNode()
+    {}
+
+    void kill_me();
+};
+
+template <typename T>
+class CounterTreeNode {
+public:
+    T m_dato;
+    CounterTreeNode *m_pChildren[2];
+    size_t count[2];
+
+public:
+    CounterTreeNode(T &_dato) :
+        m_dato(_dato)
+    {
+        m_pChildren[0] = NULL;
+        m_pChildren[1] = NULL;
     }
+
+    ~CounterTreeNode()
+    {}
 
     void kill_me();
 };
