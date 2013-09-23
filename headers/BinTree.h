@@ -25,21 +25,50 @@ public:
     }
 
     bool find(T &d, Node_T **&p);
+
     bool add(T &d);
+
     bool remove(T &d);
+
     bool addRec(T &d, Node_T *&p);
+
     bool findRec(T &d, Node_T *&p);
+
     void printIn(Node_T *p);
+
     void printPre(Node_T *p);
+
     void printPos(Node_T *p);
+
     void printIn();
+
     void printPre();
+
     void printPos();
+
     void printElem(Node_T *&p);
-    size_t level(Node_T *&p);
+
+    size_t level(Node_T *&p);       //A)
+
+    size_t height(Node_T *&p);
+
+    size_t height();                //B)
+
+    Node_T *&brother(Node_T *&p);   //C)
+
+    Node_T *&father(Node_T *&p);    //D)
+
+    Node_T *&grand_father(Node_T *&p);  //E)
+
+    size_t nodeCount();             //F)
+
+    size_t leaveCount();            //G)
+
+    Node_T *&maximum();             //H)
+
+    Node_T *&minimum();             //I)
+
 //    friend ostream &operator<<(ostream &os, BinTree<T> &List) {
-
-
 //        os << endl;
 //        return os;
 //    }
