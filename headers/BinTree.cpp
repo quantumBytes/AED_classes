@@ -109,12 +109,13 @@ void BinTree<T>::printPos() {
 
 template <typename T>
 size_t BinTree<T>::level(Node_T *&p) {       //A)
+    Node_T *tmp = m_pRoot;
 
 }
 
 template <typename T>
-size_t BinTree<T>::height(Node_T *&p) {                //B)
-    if(*p) {
+size_t BinTree<T>::height(Node_T *&p) { //Calcula la profundidad partiendo del nodo que se pasa como parámetro
+    if(p) {
         size_t height_left = height(p->m_pChildren[0]),
                height_right = height(p->m_pChildren[1]);
         return ((height_left < height_right) ? height_right : height_left) + 1;
@@ -129,25 +130,33 @@ size_t BinTree<T>::height() {                //B)
 }
 
 template <typename T>
-Node_T *&BinTree<T>::brother(Node_T *&p) {   //C)
-//node_t jqsjf;
+BinTreeNode<T> *&BinTree<T>::brother(Node_T *&p) {   //C)
+    Node_T *father = m_pRoot;
+    while(tmp) {
+
+    }
 }
 
 template <typename T>
-Node_T *&BinTree<T>::father(Node_T *&p) {    //D)
+BinTreeNode<T> *&BinTree<T>::father(Node_T *&p) {    //D)
 }
+
 template <typename T>
-Node_T *&BinTree<T>::grand_father(Node_T *&p) { //E)
+BinTreeNode<T> *&BinTree<T>::grand_father(Node_T *&p) { //E)
 }
+
 template <typename T>
 size_t BinTree<T>::nodeCount() {             //F)
 }
+
 template <typename T>
 size_t BinTree<T>::leaveCount() {            //G)
 }
+
 template <typename T>
-Node_T *&BinTree<T>::maximum() {             //H)
+BinTreeNode<T> *&BinTree<T>::maximum() {             //H)
 }
+
 template <typename T>
-Node_T *&BinTree<T>::minimum() {             //I)
+BinTreeNode<T> *&BinTree<T>::minimum() {             //I)
 }
