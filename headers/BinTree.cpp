@@ -130,6 +130,7 @@ size_t BinTree<T>::height() {                //B)
 
 template <typename T>
 Node_T *&BinTree<T>::brother(Node_T *&p) {   //C)
+//node_t jqsjf;
 }
 
 template <typename T>
