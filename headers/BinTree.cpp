@@ -112,7 +112,9 @@ size_t BinTree<T>::level(Node_T *&p) {       //A)
     Node_T *tmp = m_pRoot;
     size_t level = 0;
     while(tmp) {
-        if(tmp->m_dato )
+        if(tmp->m_dato == p->m_dato)
+            return level;
+
     }
 }
 
@@ -133,28 +135,67 @@ size_t BinTree<T>::height() {                //B)
 }
 
 template <typename T>
-BinTreeNode<T> *&BinTree<T>::brother(Node_T *&p) {   //C)
+BinTreeNode<T> *BinTree<T>::brother(Node_T *&p) {   //C)
     Node_T *father = m_pRoot;
     while(father) {
-
+        if(father->m_pChildren[father->m_dato < p->m_dato] = p)
+            return father->m_pChildren[father->m_dato > p->m_dato];
+        father = father->m_pChildren[father->m_dato < p->m_dato];
     }
+    return NULL;
 }
 
 template <typename T>
-BinTreeNode<T> *&BinTree<T>::father(Node_T *&p) {    //D)
+BinTreeNode<T> *BinTree<T>::father(Node_T *&p) {    //D)
+    Node_T *father = m_pRoot;
+    while(father) {
+        if(father->m_pChildren[father->m_dato < p->m_dato] = p)
+            return father;
+        father = father->m_pChildren[father->m_dato < p->m_dato];
+    }
+    return NULL;
 }
 
 template <typename T>
-BinTreeNode<T> *&BinTree<T>::grand_father(Node_T *&p) { //E)
+BinTreeNode<T> *BinTree<T>::grand_father(Node_T *&p) { //E)
+//    Node_T *father = m_pRoot;
+//    while(father) {
+//        if(father->m_pChildren[father->m_dato < p->m_dato] = p)
+//            return father;
+//        father = father->m_pChildren[father->m_dato < p->m_dato];
+//    }
+//    return NULL;
+}
+
+template <typename T>
+size_t BinTree<T>::nodeCount(Node_T *&p) {
+    size_t count = 0;
+    if(p) {
+        count +=
+                nodeCount(p->m_pChildren[0]) +  //Nodos por la izquierda
+                nodeCount(p->m_pChildren[1]) +  //Nodos por la derecha
+                1;                              //Nodo por sí mismo
+    }
+    return count;
 }
 
 template <typename T>
 size_t BinTree<T>::nodeCount() {             //F)
+    return nodeCount(m_pRoot);
 }
 
 template <typename T>
-size_t BinTree<T>::leaveCount() {            //G)
+size_t BinTree<T>::leafCount(Node_T *&p) {
+    if(p->m_pChildren[0])
+        return leafCount(p->m_pChildren[0]) + (p->m_pChildren[1]) ? leafCount(p->m_pChildren[1]) : 0;
+    else
+        return (p->m_pChildren[1]) ? leafCount(p->m_pChildren[1]) : 1;
+    return 0;
+}
 
+template <typename T>
+size_t BinTree<T>::leafCount() {            //G)
+    return leafCount(m_pRoot);
 }
 
 template <typename T>
@@ -177,4 +218,13 @@ BinTreeNode<T> *&BinTree<T>::minimum() {             //I)
         else
             return min;
     }
+}
+
+template <typename T>
+BinTreeNode<T> *&BinTree<T>::next(Node_T *&p) {     //J)
+
+}
+template <typename T>
+BinTreeNode<T> *&BinTree<T>::previous(Node_T *&p) { //K)
+
 }

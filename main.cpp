@@ -26,6 +26,8 @@ int main()
     tmp = 0;   abc.add(tmp);
     abc.printIn();  cout << abc.height() << endl;
 
+    cout << endl << abc.nodeCount() << endl;
+//    cout << abc.leafCount() << endl;
 
 /**** Inserccion y eliminacion de nodos ****/
 //    BinTree<int> abc;
