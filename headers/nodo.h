@@ -67,25 +67,31 @@ public:
 };
 
 template <typename T>
-class CounterTreeNode {
-public:
-    T m_dato;
-    CounterTreeNode *m_pChildren[2];
-    size_t count[2];
+class AVL_Node
+{
+    public:
+        T m_dato;
+        AVL_Node<T> *m_pChildren[2];
+        int balance_factor;
 
-public:
-    CounterTreeNode(T &_dato) :
-        m_dato(_dato)
-    {
-        m_pChildren[0] = NULL;
-        m_pChildren[1] = NULL;
-    }
+    public:
+        AVL_Node(T &d) :
+            m_dato(d),
+            balance_factor(0)
+        {
+            m_pChildren[0] = m_pChildren[1] = NULL;
+        }
 
-    ~CounterTreeNode()
-    {}
+        ~AVL_Node()
+        {}
 
-    void kill_me();
+        void kill_me();
 };
+
+template<typename T>
+T max(T &a, T &b) {
+    return (a > b) ? a : b;
+}
 
 #include "headers/nodo.cpp"
 
