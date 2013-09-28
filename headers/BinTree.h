@@ -74,8 +74,6 @@ public:
 
     Node_T *&next(Node_T *&p);      //J)
 
-    BinTree
-
 //    friend ostream &operator<<(ostream &os, BinTree<T> &List) {
 //        os << endl;
 //        return os;
