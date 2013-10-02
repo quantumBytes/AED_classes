@@ -4,27 +4,43 @@
 
 using namespace std;
 
+int fds(void *k, int tam) {
+    char *p = (char *)((string &) k)->c_str();
+    int s = 0;
+    while(*p) {
+        s += *p;
+        p++;
+    }
+    return s%tam;
+}
+
 int main()
 {
-    AVL_tree<int> Tr;
-    int ins = 50;
-    Tr.insert(ins);
-    Tr.printPre();
-    ins = 10;
-    Tr.insert(ins);
-    Tr.printPre();
-    ins = 60;
-    Tr.insert(ins);
-    Tr.printPre();
-    ins = 55;
-    Tr.insert(ins);
-    Tr.printPre();
-    ins = 70;
-    Tr.insert(ins);
-    Tr.printPre();
-    ins = 57;
-    Tr.insert(ins);
-    Tr.printPre();
+    Hash<Persona, string, fds> A;
+    A.add(Persona("0131", "Juan"), "0131");
+    A.add(Persona("3141", "Juan"), "3141");
+    cout << A.find("3141") << endl;
+
+/************* Árbol AVL *************/
+//    AVL_tree<int> Tr;
+//    int ins = 50;
+//    Tr.insert(ins);
+//    Tr.printPre();
+//    ins = 10;
+//    Tr.insert(ins);
+//    Tr.printPre();
+//    ins = 60;
+//    Tr.insert(ins);
+//    Tr.printPre();
+//    ins = 55;
+//    Tr.insert(ins);
+//    Tr.printPre();
+//    ins = 70;
+//    Tr.insert(ins);
+//    Tr.printPre();
+//    ins = 57;
+//    Tr.insert(ins);
+//    Tr.printPre();
 
 /*************** Árbol Binario ***************/
 //    BinTree<int> abc;

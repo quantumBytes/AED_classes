@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     headers/DList.cpp \
     file_mng/file_managing.cpp \
     headers/BinTree.cpp \
-    headers/avl_tree.cpp
+    headers/avl_tree.cpp \
+    headers/hash.cpp
 
 HEADERS += \
     headers/nodo.h \
@@ -20,4 +21,5 @@ HEADERS += \
     file_mng/file_managing.h \
     headers/container.h \
     headers/BinTree.h \
-    headers/avl_tree.h
+    headers/avl_tree.h \
+    headers/hash.h
