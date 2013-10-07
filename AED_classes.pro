@@ -10,7 +10,8 @@ SOURCES += main.cpp \
     file_mng/file_managing.cpp \
     headers/BinTree.cpp \
     headers/avl_tree.cpp \
-    headers/hash.cpp
+    headers/hash.cpp \
+    headers/rb_tree.cpp
 
 HEADERS += \
     headers/nodo.h \
@@ -22,4 +23,6 @@ HEADERS += \
     headers/container.h \
     headers/BinTree.h \
     headers/avl_tree.h \
-    headers/hash.h
+    headers/hash.h \
+    headers/DistFunct.h \
+    headers/rb_tree.h

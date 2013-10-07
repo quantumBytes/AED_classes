@@ -88,6 +88,19 @@ class AVL_Node
         void kill_me();
 };
 
+template <typename T>
+class RB_Node {
+public:
+    T m_Dato;
+    RB_Node *m_pChildren[2];
+    char m_Color;
+
+public:
+    RB_Node(T &d, char color = 'R') {
+
+    }
+};
+
 template<typename T>
 T max(T &a, T &b) {
     return (a > b) ? a : b;

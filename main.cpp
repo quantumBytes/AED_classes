@@ -4,43 +4,27 @@
 
 using namespace std;
 
-int fds(void *k, int tam) {
-    char *p = (char *)((string &) k)->c_str();
-    int s = 0;
-    while(*p) {
-        s += *p;
-        p++;
-    }
-    return s%tam;
-}
-
 int main()
 {
-    Hash<Persona, string, fds> A;
-    A.add(Persona("0131", "Juan"), "0131");
-    A.add(Persona("3141", "Juan"), "3141");
-    cout << A.find("3141") << endl;
+/************* HASH *************/
+//    Hash<Persona, string, fds> A;
+//    A.add(Persona("0131", "Juan"), "0131");
+//    A.add(Persona("3141", "Juan"), "3141");
+//    cout << A.find("3141") << endl;
+
+/************* Árbol Red-Black *************/
+
 
 /************* Árbol AVL *************/
 //    AVL_tree<int> Tr;
-//    int ins = 50;
-//    Tr.insert(ins);
-//    Tr.printPre();
-//    ins = 10;
-//    Tr.insert(ins);
-//    Tr.printPre();
-//    ins = 60;
-//    Tr.insert(ins);
-//    Tr.printPre();
-//    ins = 55;
-//    Tr.insert(ins);
-//    Tr.printPre();
-//    ins = 70;
-//    Tr.insert(ins);
-//    Tr.printPre();
-//    ins = 57;
-//    Tr.insert(ins);
-//    Tr.printPre();
+//    int ins;
+
+//    for(int i = 0; i < 1000; i++) {
+//        ins = rand();
+//        Tr.insert(ins);
+//    }
+
+//    Tr.graph();
 
 /*************** Árbol Binario ***************/
 //    BinTree<int> abc;
