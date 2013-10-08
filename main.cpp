@@ -1,5 +1,5 @@
 #include <iostream>
-#include "headers/avl_tree.h"
+#include "headers/rb_tree.h"
 #include <math.h>
 
 using namespace std;
@@ -13,6 +13,15 @@ int main()
 //    cout << A.find("3141") << endl;
 
 /************* Árbol Red-Black *************/
+    RB_Tree<int> Tr;
+    int ins;
+
+    for(int i = 0; i < 10; i++) {
+        ins = rand();
+        Tr.insert(ins);
+    }
+
+    Tr.graph();
 
 
 /************* Árbol AVL *************/

@@ -37,3 +37,13 @@ void AVL_Node<T>::kill_me()
         m_pChildren[1]->kill_me();
     delete this;
 }
+
+template <typename T>
+void RB_Node<T>::kill_me()
+{
+    if(m_pChildren[0])
+        m_pChildren[0]->kill_me();
+    if(m_pChildren[1])
+        m_pChildren[1]->kill_me();
+    delete this;
+}

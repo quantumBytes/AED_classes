@@ -90,15 +90,30 @@ class AVL_Node
 
 template <typename T>
 class RB_Node {
+    enum Color {
+        BLACK = 0,
+        RED = 1
+    };
+
 public:
-    T m_Dato;
+    RB_Node *m_parent;
     RB_Node *m_pChildren[2];
-    char m_Color;
+    T m_Dato;       //Dato
+    Color m_Color;   //Color
 
 public:
-    RB_Node(T &d, char color = 'R') {
-
+    RB_Node(T &d, Color color = RED) :
+        m_parent(NULL),
+        m_Dato(d),
+        m_Color(color)
+    {
+        m_pChildren[0] = m_pChildren[1] = NULL;
     }
+
+    ~AVL_Node()
+    {}
+
+    void kill_me();
 };
 
 template<typename T>

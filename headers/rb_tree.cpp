@@ -1,6 +1,6 @@
 #include "rb_tree.h"
 
-RB_Tree::RB_Tree()
-{
-
+template <typename T>
+bool RB_Tree<T>::insert(T &d) {
+    return false;
 }

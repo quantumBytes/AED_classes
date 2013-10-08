@@ -38,7 +38,7 @@ private:
 public:
 
     AVL_tree() :
-        m_pRoot(0)
+        m_pRoot(NULL)
     {}
 
     ~AVL_tree();
