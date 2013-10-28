@@ -90,6 +90,7 @@ class AVL_Node
 
 template <typename T>
 class RB_Node {
+public:
     enum Color {
         BLACK = 0,
         RED = 1
@@ -102,18 +103,38 @@ public:
     Color m_Color;   //Color
 
 public:
-    RB_Node(T &d, Color color = RED) :
-        m_parent(NULL),
+    RB_Node(T &d, RB_Node * parent=0) :
+        m_parent(parent),
         m_Dato(d),
-        m_Color(color)
+        m_Color(RED)
     {
         m_pChildren[0] = m_pChildren[1] = NULL;
     }
 
-    ~AVL_Node()
+    ~RB_Node()
     {}
 
+    inline bool isRed() {
+        return m_Color == RED;
+    }
+
+    inline bool isBlack() {
+        return m_Color == BLACK;
+    }
+
+    inline void getBlack() {
+        m_Color = BLACK;
+    }
+
+    inline void getRed() {
+        m_Color = RED;
+    }
+
     void kill_me();
+
+    RB_Node *uncle();
+
+    RB_Node *grandparent();
 };
 
 template<typename T>

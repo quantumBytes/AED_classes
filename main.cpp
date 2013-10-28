@@ -15,11 +15,14 @@ int main()
 /************* Árbol Red-Black *************/
     RB_Tree<int> Tr;
     int ins;
-
+/*
     for(int i = 0; i < 10; i++) {
-        ins = rand();
-        Tr.insert(ins);
-    }
+        //ins = rand();
+        Tr.insert(i);
+    }*/
+
+    int a=3;
+    Tr.insert(a);
 
     Tr.graph();
 
